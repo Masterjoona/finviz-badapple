@@ -13,7 +13,7 @@ class BadApplePlayer {
     async fetchBadAppleFrames() {
         try {
             const response = await fetch(
-                "https://pawst.eu/p/pigeon-spider-fly/f/all_frames.json"
+                "https://pawst.eu/p/pigeon-spider-fly/f/all_new_frames.json"
             );
             this.badAppleFrames = await response.json();
         } catch (error) {
@@ -62,16 +62,57 @@ class BadApplePlayer {
         requestAnimationFrame(this.playPrecomputed.bind(this));
     }
 
+    syncWithVideo(video) {
+        const renderFromVideo = () => {
+            if (!this.precalculatedFrames.length) return;
+
+            const frameIndex = Math.floor(video.currentTime * 30);
+
+            if (frameIndex < this.precalculatedFrames.length) {
+                unsafeWindow.treemapper.updatePerf(this.precalculatedFrames[frameIndex]);
+                unsafeWindow.updateTick(v => v + 1);
+            }
+
+            requestAnimationFrame(renderFromVideo);
+        };
+
+        requestAnimationFrame(renderFromVideo);
+    }
+
     async start() {
         await this.fetchBadAppleFrames();
         if (this.badAppleFrames) {
             this.preCalculate();
             requestAnimationFrame(this.playPrecomputed.bind(this));
         }
+        return true;
     }
 }
 
 export const startBadApple = () => {
     const player = new BadApplePlayer();
     player.start();
+};
+
+export const startBadAppleWithAudioAndVideo = async () => {
+    const player = new BadApplePlayer();
+
+    const video = document.createElement("video");
+    video.src = "https://pawst.eu/p/pigeon-spider-fly/f/badapple.mp4";
+    video.load();
+
+    video.style.position = "fixed";
+    video.style.bottom = "38px";
+    video.style.left = "360px";
+    video.style.width = "300px";
+    video.style.height = "auto";
+    video.style.zIndex = "9999";
+    video.style.opacity = "0.5";
+
+    document.body.appendChild(video);
+
+    await player.start();
+    await video.play();
+
+    player.syncWithVideo(video);
 };
