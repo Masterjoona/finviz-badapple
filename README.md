@@ -9,7 +9,7 @@ I came across a [tweet](https://x.com/ZenithVal/status/1910214425966968857) wher
 <details>
 <summary>tweet</summary>
 
-[Screenshot of the tweet which has a video reply to someone asking to make bad apple of "this"](https://github.com/user-attachments/assets/35cf5869-06e0-48cc-a6c1-9d5fbc659d71)
+![Screenshot of the tweet which has a video reply to someone asking to make bad apple of "this"](https://github.com/user-attachments/assets/35cf5869-06e0-48cc-a6c1-9d5fbc659d71)
 
 </details>
 
