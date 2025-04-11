@@ -71,7 +71,6 @@ export default class Patcher {
 
 
   _patchModules(modules) {
-    console.log([...this.patchesToApply]);
     for (const id in modules) {
       if (modules[id].__wpt_processed) {
         continue;
