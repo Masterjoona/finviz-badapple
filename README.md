@@ -8,7 +8,9 @@ I came across a [tweet](https://x.com/ZenithVal/status/1910214425966968857) wher
 
 <details>
 <summary>tweet</summary>
-![Screenshot of the tweet which has a video reply to someone asking to make bad apple of "this"](https://github.com/user-attachments/assets/35cf5869-06e0-48cc-a6c1-9d5fbc659d71)
+
+[Screenshot of the tweet which has a video reply to someone asking to make bad apple of "this"](https://github.com/user-attachments/assets/35cf5869-06e0-48cc-a6c1-9d5fbc659d71)
+
 </details>
 
 ## how to Use
@@ -16,7 +18,7 @@ I came across a [tweet](https://x.com/ZenithVal/status/1910214425966968857) wher
 1. Install a userscript manager, such as [Violentmonkey](https://violentmonkey.github.io/get-it/).
 2. open the [file](/dist/finviz_badapple.user.js) in the dist folder (yes i know dist is not a good way to do this, but i am lazy and this is a fun project).
 </br>You can change the `badAppleConfig` to change the colors if you wish
-3. Navigate to [Finviz](https://finviz.com/map.ashx) (or any map in the sidebar) and open the browser console (F12).
+3. Navigate to [Finviz](https://finviz.com/map.ashx) (or any map in the sidebar) and open the browser console
 4. Run `startBadApple()` in the console.
 5. Sit back and enjoy the animation.
 
@@ -78,3 +80,4 @@ I used a stripped-down version of [moonlight's webpackTools](https://github.com/
 
 - The scripts [first patch](/src/index.js#L4-12) introduces a way to trigger React updates, forcing a re-render to allow frame changes.
 - The [second patch](/src/index.js#L13-20) exposes the `treemap` class, which manages the "nodes" (red and green elements you see on the map) and other map-related data.
+- Then we fetch the frames which are zeros and ones and precompute each node's `perf` value
