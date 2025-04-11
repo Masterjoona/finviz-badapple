@@ -4,12 +4,17 @@ Userscript to play [Bad Apple!!](https://en.wikipedia.org/wiki/Bad_Apple!!#Use_o
 
 ## why?
 
-I came across a [tweet](https://x.com/ZenithVal/status/1910214425966968857) where someone showcased this idea. After reading the replies, I learned they manually edited the video, which took them hours. I decided to automate the process by creating a userscript.
+I came across a [tweet](https://x.com/ZenithVal/status/1910214425966968857) where they used after effects to achieve this. They said it took them a couple hours and i thought it could be quite fun do this with just js.
+
+<details>
+<summary>tweet</summary>
+![Screenshot of the tweet which has a video reply to someone asking to make bad apple of "this"](https://github.com/user-attachments/assets/35cf5869-06e0-48cc-a6c1-9d5fbc659d71)
+</details>
 
 ## how to Use
 
 1. Install a userscript manager, such as [Violentmonkey](https://violentmonkey.github.io/get-it/).
-2. Visit the releases section and install the latest version of the script.
+2. open the [file](/dist/finviz_badapple.user.js) in the dist folder (yes i know dist is not a good way to do this, but i am lazy and this is a fun project).
 </br>You can change the `badAppleConfig` to change the colors if you wish
 3. Navigate to [Finviz](https://finviz.com/map.ashx) (or any map in the sidebar) and open the browser console (F12).
 4. Run `startBadApple()` in the console.
