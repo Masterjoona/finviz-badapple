@@ -19,8 +19,8 @@ I came across a [tweet](https://x.com/ZenithVal/status/1910214425966968857) wher
 
 ## how to Use
 
-1. Install a userscript manager, i use[Violentmonkey](https://violentmonkey.github.io/get-it/).
-2. open the [file](/dist/finviz_badapple.user.js) in the dist folder (yes i know dist is not a good way to do this, but i am lazy and this is a fun project).
+1. Install a userscript manager, i use [Violentmonkey](https://violentmonkey.github.io/get-it/).
+2. open the [file](/dist/finviz_badapple.user.js) in the dist folder (yes i know dist is not a good way to do this, but whatever).
 </br>You can change the `badAppleConfig` to change the colors if you wish (if you do, reload the page if already had it open)
 3. Navigate to [Finviz map](https://finviz.com/map.ashx) (and if you want to, you can select a different map from the sidebar) and open the browser console
 4. Run `startBadApple()` in the console or `startBadAppleWithVideo()` if you want to have the original one playing as well (you can drag it around)
