@@ -1,5 +1,5 @@
 import Patcher from "./Patcher";
-import { startBadApple, startBadAppleWithAudioAndVideo } from "./badAppler";
+import { startBadApple, startBadAppleWithVideo } from "./badAppler";
 
 unsafeWindow.customColorScale = (value) => {
     if (!started) return unsafeWindow.treemapper.colorScale(value);
@@ -55,10 +55,10 @@ unsafeWindow.startBadApple = () => {
     return started;
 }
 
-unsafeWindow.startBadAppleWithAudioAndVideo = async () => {
+unsafeWindow.startBadAppleWithVideo = async () => {
     if (!started) {
         started = true;
-        await startBadAppleWithAudioAndVideo();
+        await startBadAppleWithVideo();
     }
     return started;
 }

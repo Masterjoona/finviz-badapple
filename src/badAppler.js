@@ -94,11 +94,12 @@ export const startBadApple = () => {
     player.start();
 };
 
-export const startBadAppleWithAudioAndVideo = async () => {
+export const startBadAppleWithVideo = async () => {
     const player = new BadApplePlayer();
 
     const video = document.createElement("video");
     video.src = "https://pawst.eu/p/pigeon-spider-fly/f/badapple.mp4";
+    video.volume = 0.1;
     video.load();
 
     video.style.position = "fixed";
@@ -107,11 +108,36 @@ export const startBadAppleWithAudioAndVideo = async () => {
     video.style.width = "300px";
     video.style.height = "auto";
     video.style.zIndex = "9999";
-    video.style.opacity = "0.5";
+    video.style.opacity = "1";
+    video.style.cursor = "move"
+
+    let isDragging = false;
+    let offsetX = 0;
+    let offsetY = 0;
+
+    video.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        offsetX = e.clientX - video.getBoundingClientRect().left;
+        offsetY = e.clientY - video.getBoundingClientRect().top;
+        e.preventDefault();
+    });
+
+    document.addEventListener("mousemove", (e) => {
+        if (isDragging) {
+            video.style.left = `${e.clientX - offsetX}px`;
+            video.style.top = `${e.clientY - offsetY}px`;
+            video.style.bottom = "auto"; // prevent style conflict
+        }
+    });
+
+    document.addEventListener("mouseup", () => {
+        isDragging = false;
+    });
 
     document.body.appendChild(video);
 
-    await player.start();
+    await player.fetchBadAppleFrames();
+    player.preCalculate();
     await video.play();
 
     player.syncWithVideo(video);
